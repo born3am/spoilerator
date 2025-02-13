@@ -1,0 +1,50 @@
+{
+  "name": "spoilerator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "For the impatient, the curious, and the malicious... get the spoilers before the movie even starts!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && vite",
+    "build:frontend": "cd frontend && vite build",
+    "serve:frontend": "cd frontend && vite preview",
+    "dev:backend": "cd backend && node server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/born3am/spoilerator.git"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/born3am/spoilerator/issues"
+  },
+  "homepage": "https://github.com/born3am/spoilerator#readme",
+  "dependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/dotenv": "^6.1.1",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "concurrently": "^8.0.1"
+  }
+}

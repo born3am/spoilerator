@@ -30,14 +30,22 @@ const App: React.FC = () => {
 
   const settings = {
     dots: true,
+    centerMode: true,
     infinite: true,
-    speed: 500,
+    centerPadding: "40px",
+    autoplay: true,
     slidesToShow: 5,
-    slidesToScroll: 1
+    autoplaySpeed: 2000,
+    speed: 500,
+    cssEase: "linear",
+    focusOnSelect: true,
+    pauseOnHover: true
+
+
   };
 
   return (
-    <div className="App">
+    <div className="App slider-container">
       <h1>Popular Movies</h1>
       <Slider {...settings}>
         {movies.map(movie => (

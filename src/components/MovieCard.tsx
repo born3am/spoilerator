@@ -13,15 +13,14 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     // Implement spoiler button functionality here
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
-  };
+const settings = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false
+};
 
   return (
     <div className="movie-card">
@@ -38,26 +37,5 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   );
 };
 
-const SampleNextArrow = (props: { className?: string; style?: React.CSSProperties; onClick?: React.MouseEventHandler<HTMLDivElement> }) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "red" }}
-      onClick={onClick}
-    />
-  );
-};
-
-const SamplePrevArrow = (props: { className?: string; style?: React.CSSProperties; onClick?: React.MouseEventHandler<HTMLDivElement> }) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "green" }}
-      onClick={onClick}
-    />
-  );
-};
 
 export default MovieCard;

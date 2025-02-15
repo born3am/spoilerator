@@ -31,7 +31,7 @@
 }
 
 .movie-card button {
-  background-color: #007bff;
+  background-color: #5a40df;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -39,8 +39,12 @@
   cursor: pointer;
   margin: 10px;
   transition: background-color 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
 }
 
 .movie-card button:hover {
-  background-color: #0056b3;
+  background-color: #4a30b3;
 }

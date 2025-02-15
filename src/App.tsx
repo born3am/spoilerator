@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
+import Logo from './components/Logo';
+import './App.css';
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -40,13 +42,11 @@ const App: React.FC = () => {
     cssEase: "linear",
     focusOnSelect: true,
     pauseOnHover: true
-
-
   };
 
   return (
     <div className="App slider-container">
-      <h1>Popular Movies</h1>
+      <Logo />
       <Slider {...settings}>
         {movies.map(movie => (
           <div key={movie.id}>

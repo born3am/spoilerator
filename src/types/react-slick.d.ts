@@ -1,5 +1,4 @@
 declare module 'react-slick' {
-  import * as React from 'react';
 
   export interface Settings {
     dots?: boolean;

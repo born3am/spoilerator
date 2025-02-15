@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
-import Logo from './components/Logo';
+import Navbar from './components/Navbar';
 import './App.css';
 
 const App: React.FC = () => {
@@ -45,8 +45,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App slider-container">
-      <Logo />
+    <div className="App">
+      <Navbar />
       <Slider {...settings}>
         {movies.map(movie => (
           <div key={movie.id}>

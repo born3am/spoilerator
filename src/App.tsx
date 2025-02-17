@@ -6,6 +6,7 @@ import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
 import Navbar from './components/Navbar';
 import About from './pages/About';
+import TrailerModal from './components/TrailerModal';
 import './App.css';
 import { fetchMovies } from './utils/fetchMovies';
 import {
@@ -18,6 +19,7 @@ import {
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('now');
+  const [trailerLink, setTrailerLink] = useState<string | null>(null);
 
   useEffect(() => {
     let endpoint = API_TMDB_NOW_ENDPOINT;
@@ -31,6 +33,14 @@ const App: React.FC = () => {
     fetchMovies(setMovies, endpoint, API_TMDB_PARAMS);
   }, [selectedCategory]);
 
+  const handlePlayClick = (link: string) => {
+    setTrailerLink(link);
+  };
+
+  const handleCloseModal = () => {
+    setTrailerLink(null);
+  };
+
   const settings = {
     dots: true,
     centerMode: true,
@@ -41,7 +51,6 @@ const App: React.FC = () => {
     autoplaySpeed: 2000,
     speed: 500,
     cssEase: "linear",
-    focusOnSelect: true,
     pauseOnHover: true
   };
 
@@ -53,7 +62,7 @@ const App: React.FC = () => {
           <Slider {...settings}>
             {movies.map(movie => (
               <div key={movie.id}>
-                <MovieCard movie={movie} />
+                <MovieCard movie={movie} onPlayClick={handlePlayClick} />
               </div>
             ))}
           </Slider>
@@ -61,6 +70,7 @@ const App: React.FC = () => {
           <About />
         )}
       </div>
+      {trailerLink && <TrailerModal trailerLink={trailerLink} onClose={handleCloseModal} />}
     </div>
   );
 };

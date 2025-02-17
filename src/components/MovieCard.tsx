@@ -6,14 +6,15 @@ import { getTrailerLink } from '../utils/getTrailerLink';
 
 interface MovieCardProps {
   movie: Movie;
+  onPlayClick: (link: string) => void;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
 
   const handlePlayClick = async () => {
     const link = await getTrailerLink(movie.id);
     if (link) {
-      window.open(link, '_blank');
+      onPlayClick(link);
     }
   };
 

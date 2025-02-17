@@ -17,7 +17,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
     <div className="movie-card">
         <div>
           <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
-          <h2>{truncateText(movie.title,24)}</h2>
+          <h2>{truncateText(movie.title,18)}</h2>
           <p>Release Date: {movie.release_date}</p>
           <p>{truncateText(movie.overview)}</p>
           <button onClick={handleSpoilerClick}>Spoiler</button>

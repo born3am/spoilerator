@@ -6,6 +6,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <Logo />
+      <h1>The Spoilerator</h1>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#trend">Trend</a></li>

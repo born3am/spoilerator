@@ -3,16 +3,26 @@ import './Navbar.css';
 import Logo from './Logo';
 import SearchInput from './SearchInput';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
+  activeCategory: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory }) => {
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <nav className="navbar">
       <Logo />
       <h1>The Spoilerator</h1>
       <SearchInput />
       <ul>
-        <li><a href="#trend">Trend</a></li>
-        <li><a href="#classics">Classics</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#now" onClick={() => handleCategoryClick('now')} className={activeCategory === 'now' ? 'active' : ''}>Now Playing</a></li>
+        <li><a href="#upcoming" onClick={() => handleCategoryClick('upcoming')} className={activeCategory === 'upcoming' ? 'active' : ''}>Upcoming</a></li>
+        <li><a href="#top" onClick={() => handleCategoryClick('top')} className={activeCategory === 'top' ? 'active' : ''}>Top Rated</a></li>
+        <li><a href="#about" className={activeCategory === 'about' ? 'active' : ''}>About</a></li>
       </ul>
     </nav>
   );

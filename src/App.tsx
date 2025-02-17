@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,28 +6,29 @@ import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
 import Navbar from './components/Navbar';
 import './App.css';
+import { fetchMovies } from './utils/fetchMovies';
+import {
+  API_TMDB_NOW_ENDPOINT,
+  API_TMDB_UPCOMING_ENDPOINT,
+  API_TMDB_TOP_ENDPOINT,
+  API_TMDB_PARAMS
+} from './constants/apiTmdb';
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('now');
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get('https://api.themoviedb.org/3/movie/popular', {
-          params: {
-            api_key: import.meta.env.VITE_TMDB_API_KEY,
-            language: 'en-US',
-            page: 1
-          }
-        });
-        setMovies(response.data.results.slice(0, 10));
-      } catch (error) {
-        console.error('Error fetching movies:', error);
-      }
-    };
-
-    fetchMovies();
-  }, []);
+    let endpoint = API_TMDB_NOW_ENDPOINT;
+    if (selectedCategory === 'now') {
+      endpoint = API_TMDB_NOW_ENDPOINT;
+    } else if (selectedCategory === 'upcoming') {
+      endpoint = API_TMDB_UPCOMING_ENDPOINT;
+    } else if (selectedCategory === 'top') {
+      endpoint = API_TMDB_TOP_ENDPOINT;
+    }
+    fetchMovies(setMovies, endpoint, API_TMDB_PARAMS);
+  }, [selectedCategory]);
 
   const settings = {
     dots: true,
@@ -46,7 +46,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} />
       <Slider {...settings}>
         {movies.map(movie => (
           <div key={movie.id}>

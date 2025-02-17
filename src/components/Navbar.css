@@ -47,6 +47,10 @@
   display: block;
 }
 
+.navbar ul li a.active {
+  text-decoration: underline;
+}
+
 .navbar ul li a:hover {
   background-color: #5a40df;
   color: white;

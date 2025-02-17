@@ -1,0 +1,16 @@
+.search-input-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.search-input-container input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  font-size: 1em;
+  outline: none;
+}

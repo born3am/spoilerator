@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
 import Navbar from './components/Navbar';
@@ -17,6 +20,7 @@ const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('now');
   const [trailerLink, setTrailerLink] = useState<string | null>(null);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
     let endpoint = API_TMDB_NOW_ENDPOINT;
@@ -30,6 +34,17 @@ const App: React.FC = () => {
     fetchMovies(setMovies, endpoint, API_TMDB_PARAMS);
   }, [selectedCategory]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const handlePlayClick = (link: string) => {
     setTrailerLink(link);
   };
@@ -38,16 +53,47 @@ const App: React.FC = () => {
     setTrailerLink(null);
   };
 
+  const settings = {
+    dots: true,
+    centerMode: true,
+    infinite: true,
+    centerPadding: "40px",
+    autoplay: true,
+    slidesToShow: 5,
+    autoplaySpeed: 2000,
+    speed: 500,
+    cssEase: "linear",
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+    ]
+  };
+
   return (
     <div className="App">
       <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} />
       <div className="content">
         {selectedCategory !== 'about' ? (
-          <div className="movie-grid">
-            {movies.map(movie => (
-              <MovieCard key={movie.id} movie={movie} onPlayClick={handlePlayClick} />
-            ))}
-          </div>
+          isDesktop ? (
+            <Slider {...settings}>
+              {movies.map(movie => (
+                <div key={movie.id}>
+                  <MovieCard movie={movie} onPlayClick={handlePlayClick} />
+                </div>
+              ))}
+            </Slider>
+          ) : (
+            <div className="movie-grid">
+              {movies.map(movie => (
+                <MovieCard key={movie.id} movie={movie} onPlayClick={handlePlayClick} />
+              ))}
+            </div>
+          )
         ) : (
           <About />
         )}

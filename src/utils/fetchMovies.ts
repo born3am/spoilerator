@@ -8,7 +8,7 @@ export const fetchMovies = async (
 ) => {
   try {
     const response = await axios.get(endpoint, { params });
-    setMovies(response.data.results.slice(0, 10));
+    setMovies(response.data.results.slice(0, 16));
   } catch (error) {
     console.error('Error fetching movies:', error);
   }

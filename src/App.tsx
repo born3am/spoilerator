@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
 import Navbar from './components/Navbar';
@@ -41,31 +38,16 @@ const App: React.FC = () => {
     setTrailerLink(null);
   };
 
-  const settings = {
-    dots: true,
-    centerMode: true,
-    infinite: true,
-    centerPadding: "40px",
-    autoplay: true,
-    slidesToShow: 5,
-    autoplaySpeed: 2000,
-    speed: 500,
-    cssEase: "linear",
-    pauseOnHover: true
-  };
-
   return (
     <div className="App">
       <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} />
       <div className="content">
         {selectedCategory !== 'about' ? (
-          <Slider {...settings}>
+          <div className="movie-grid">
             {movies.map(movie => (
-              <div key={movie.id}>
-                <MovieCard movie={movie} onPlayClick={handlePlayClick} />
-              </div>
+              <MovieCard key={movie.id} movie={movie} onPlayClick={handlePlayClick} />
             ))}
-          </Slider>
+          </div>
         ) : (
           <About />
         )}

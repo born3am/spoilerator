@@ -16,6 +16,38 @@
   width: 100%;
   height: auto;
   display: block;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.movie-card:hover img {
+  opacity: 0.7;
+}
+
+.movie-card .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.play-icon {
+  cursor: pointer;
+
+}
+
+.movie-card:hover .play-icon {
+  opacity: 1;
 }
 
 .movie-card h2 {

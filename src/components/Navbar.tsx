@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory }) 
         <li><a href="#now" onClick={() => handleCategoryClick('now')} className={activeCategory === 'now' ? 'active' : ''}>Now Playing</a></li>
         <li><a href="#upcoming" onClick={() => handleCategoryClick('upcoming')} className={activeCategory === 'upcoming' ? 'active' : ''}>Upcoming</a></li>
         <li><a href="#top" onClick={() => handleCategoryClick('top')} className={activeCategory === 'top' ? 'active' : ''}>Top Rated</a></li>
-        <li><a href="#about" className={activeCategory === 'about' ? 'active' : ''}>About</a></li>
+        <li><a href="#about" onClick={() => handleCategoryClick('about')} className={activeCategory === 'about' ? 'active' : ''}>About</a></li>
       </ul>
     </nav>
   );

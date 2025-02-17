@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import MovieCard from './components/MovieCard';
 import { Movie } from './types/movie';
 import Navbar from './components/Navbar';
+import About from './pages/About';
 import './App.css';
 import { fetchMovies } from './utils/fetchMovies';
 import {
@@ -47,13 +48,19 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} />
-      <Slider {...settings}>
-        {movies.map(movie => (
-          <div key={movie.id}>
-            <MovieCard movie={movie} />
-          </div>
-        ))}
-      </Slider>
+      <div className="content">
+        {selectedCategory !== 'about' ? (
+          <Slider {...settings}>
+            {movies.map(movie => (
+              <div key={movie.id}>
+                <MovieCard movie={movie} />
+              </div>
+            ))}
+          </Slider>
+        ) : (
+          <About />
+        )}
+      </div>
     </div>
   );
 };

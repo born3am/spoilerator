@@ -1,0 +1,21 @@
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 60px; /* Adjust this value based on the height of your navbar */
+}
+
+.about-content h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 1.2em;
+  color: #333;
+  line-height: 1.6;
+}

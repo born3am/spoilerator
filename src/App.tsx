@@ -21,6 +21,7 @@ const App: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('now');
   const [trailerLink, setTrailerLink] = useState<string | null>(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
 
   useEffect(() => {
     let endpoint = API_TMDB_NOW_ENDPOINT;
@@ -36,7 +37,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1024);
+      setIsDesktop(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
@@ -47,10 +48,12 @@ const App: React.FC = () => {
 
   const handlePlayClick = (link: string) => {
     setTrailerLink(link);
+    setIsTrailerModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setTrailerLink(null);
+    setIsTrailerModalOpen(false);
   };
 
   const settings = {
@@ -58,7 +61,7 @@ const App: React.FC = () => {
     centerMode: true,
     infinite: true,
     centerPadding: "40px",
-    autoplay: true,
+    autoplay: !isTrailerModalOpen,
     slidesToShow: 5,
     autoplaySpeed: 2000,
     speed: 500,
@@ -66,7 +69,7 @@ const App: React.FC = () => {
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 768,
         settings: {
           slidesToShow: 3,
         }
@@ -80,7 +83,7 @@ const App: React.FC = () => {
       <div className="content">
         {selectedCategory !== 'about' ? (
           isDesktop ? (
-            <Slider {...settings}>
+            <Slider key={isTrailerModalOpen ? 'modal-open' : 'modal-closed'} {...settings}>
               {movies.map(movie => (
                 <div key={movie.id}>
                   <MovieCard movie={movie} onPlayClick={handlePlayClick} />

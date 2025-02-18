@@ -15,7 +15,7 @@ import {
   API_TMDB_UPCOMING_ENDPOINT,
   API_TMDB_TOP_ENDPOINT,
   API_TMDB_PARAMS
-} from './services/tmdb/constants';
+} from './services/tmdb/endpoints';
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);

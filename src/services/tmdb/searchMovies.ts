@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Movie } from '../../types/movie';
-import { API_TMDB_PARAMS, API_TMDB_SEARCH_ENDPOINT } from './constants';
+import { API_TMDB_PARAMS, API_TMDB_SEARCH_ENDPOINT } from './endpoints';
 
 export const searchMovies = async (query: string): Promise<Movie[]> => {
   try {

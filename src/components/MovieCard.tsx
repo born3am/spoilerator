@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Movie } from '../types/movie';
 import './MovieCard.css';
 import { truncateText } from '../utils/truncateText';

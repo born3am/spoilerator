@@ -30,7 +30,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3em;
-  color: white;
+  color: #fff;
   opacity: 0;
   transition: opacity 0.3s;
   background: rgba(0, 0, 0, 0.5);
@@ -40,14 +40,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.play-icon {
   cursor: pointer;
-
 }
 
 .movie-card:hover .play-icon {
   opacity: 1;
+}
+
+.movie-card .play-icon:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .movie-card h2 {
@@ -69,11 +70,9 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin: 10px;
+  margin: 10px auto;
   transition: background-color 0.3s;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
   font-weight: 700;
 }
 

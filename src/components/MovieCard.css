@@ -6,7 +6,6 @@
   transition: transform 0.3s;
   margin: 8px;
   background-color: #fff;
-  width: 80%;
 }
 
 .movieCard:hover {
@@ -19,6 +18,7 @@
   display: block;
   opacity: 1;
   transition: opacity 0.3s;
+  margin: auto;
 }
 
 .movieCard:hover .movieCard__image {
@@ -53,13 +53,13 @@
 }
 
 .movieCard__title {
-  font-size: 1.3em;
+  font-size: 1em;
   margin: 16px 0 4px;
   padding: 0 8px;
 }
 
 .movieCard__overview {
-  font-size: 1em;
+  font-size: 0.8em;
   margin: 12px 0;
   padding: 0 8px;
   line-height: 1.3;

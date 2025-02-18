@@ -9,31 +9,9 @@ body {
   padding: 20px;
 }
 
-.movie-grid {
+.App__movie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 20px;
-  box-sizing: border-box;
-  margin-top: 60px; /* Adjust this value based on the height of your navbar */
-}
-
-.about-content h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.about-content p {
-  font-size: 1.2em;
-  color: #333;
-  line-height: 1.6;
 }

@@ -60,12 +60,10 @@ const App: React.FC = () => {
     dots: true,
     centerMode: true,
     infinite: true,
-    centerPadding: "40px",
     autoplay: !isTrailerModalOpen,
     slidesToShow: 5,
     autoplaySpeed: 2000,
     speed: 500,
-    cssEase: "linear",
     pauseOnHover: true,
     responsive: [
       {
@@ -80,10 +78,10 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} />
-      <div className="content">
+      <div>
         {selectedCategory !== 'about' ? (
           isDesktop ? (
-            <Slider key={isTrailerModalOpen ? 'modal-open' : 'modal-closed'} {...settings}>
+            <Slider className="App__carousel" key={isTrailerModalOpen ? 'modal-open' : 'modal-closed'} {...settings}>
               {movies.map(movie => (
                 <div key={movie.id}>
                   <MovieCard movie={movie} onPlayClick={handlePlayClick} />
@@ -91,7 +89,7 @@ const App: React.FC = () => {
               ))}
             </Slider>
           ) : (
-            <div className="movie-grid">
+            <div className="App__movie-grid">
               {movies.map(movie => (
                 <MovieCard key={movie.id} movie={movie} onPlayClick={handlePlayClick} />
               ))}

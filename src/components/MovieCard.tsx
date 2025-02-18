@@ -30,8 +30,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
     className="movieCard__image"
   />
   <div className="movieCard__playIcon" onClick={handlePlayClick}>▶</div>
-  <h2 className="movieCard__title">{truncateText(movie.title, 18)}</h2>
-  <p className="movieCard__releaseDate">Release Date: {extractYearFromReleaseDate(movie.release_date)}</p>
+  <h2 className="movieCard__title">{truncateText(movie.title, 18)} ({extractYearFromReleaseDate(movie.release_date)})</h2>
   <p className="movieCard__overview">{truncateText(movie.overview)}</p>
   <button className="movieCard__button" onClick={handleSpoilerClick}>Spoiler</button>
 </div>

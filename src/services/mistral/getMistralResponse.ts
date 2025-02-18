@@ -1,6 +1,5 @@
-import axios from 'axios';
+import { Mistral } from '@mistralai/mistralai';
 import { CUSTOM_PROMPT } from '../../config/promptConfig';
-import { MISTRAL_API_ENDPOINT } from './endpoints';
 
 interface MistralResponse {
   title: string;
@@ -15,25 +14,27 @@ export const getMistralResponse = async (
 ): Promise<MistralResponse> => {
   const apiKey = import.meta.env.VITE_MISTRAL_API_KEY;
 
+  if (!apiKey) {
+    throw new Error('MISTRAL API Key is not defined in environment variables.');
+  }
+
+  const model = 'mistral-small-latest';
+  const client = new Mistral({ apiKey });
+
   try {
-    const response = await axios.post(MISTRAL_API_ENDPOINT, {
-      model: 'mistral',
+    const response = await client.chat.complete({
+      model,
       messages: [
         { role: 'system', content: 'You are a helpful assistant.' },
         { role: 'user', content: `Title: ${title}, Release Date: ${releaseDate}, Prompt: ${CUSTOM_PROMPT}` }
       ]
-    }, {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json'
-      }
     });
 
     return {
       title,
       releaseDate,
       prompt: CUSTOM_PROMPT,
-      response: response.data.choices[0].message.content,
+      response: response.choices[0].message.content,
     };
   } catch (error) {
     console.error('Error fetching response from Mistral AI:', error);

@@ -37,7 +37,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768);
+      setIsDesktop(window.innerWidth > 1024);
     };
 
     window.addEventListener('resize', handleResize);
@@ -67,7 +67,7 @@ const App: React.FC = () => {
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
         }

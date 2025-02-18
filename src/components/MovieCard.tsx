@@ -23,17 +23,18 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
   };
 
   return (
-    <div className="movie-card">
-      <img
-        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-        alt={movie.title}
-      />
-      <div className="play-icon" onClick={handlePlayClick}>▶</div>
-      <h2>{truncateText(movie.title, 18)}</h2>
-      <p className="movie-card__year" >({extractYearFromReleaseDate(movie.release_date)})</p>
-      <p className="movie-card__text">{truncateText(movie.overview)}</p>
-      <button onClick={handleSpoilerClick}>Spoiler</button>
-    </div>
+<div className="movieCard">
+  <img
+    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+    alt={movie.title}
+    className="movieCard__image"
+  />
+  <div className="movieCard__playIcon" onClick={handlePlayClick}>▶</div>
+  <h2 className="movieCard__title">{truncateText(movie.title, 18)}</h2>
+  <p className="movieCard__releaseDate">Release Date: {extractYearFromReleaseDate(movie.release_date)}</p>
+  <p className="movieCard__overview">{truncateText(movie.overview)}</p>
+  <button className="movieCard__button" onClick={handleSpoilerClick}>Spoiler</button>
+</div>
   );
 };
 

@@ -1,4 +1,4 @@
-.modal-overlay {
+.trailerModal {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,14 +11,14 @@
   z-index: 1000;
 }
 
-.modal-content {
+.trailerModal__content {
   background: white;
   padding: 20px;
   border-radius: 8px;
   position: relative;
 }
 
-.close-button {
+.trailerModal__closeButton {
   position: absolute;
   top: 0px;
   right: 4px;

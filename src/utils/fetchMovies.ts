@@ -4,7 +4,7 @@ import { Movie } from '../types/movie';
 export const fetchMovies = async (
   setMovies: React.Dispatch<React.SetStateAction<Movie[]>>,
   endpoint: string,
-  params: Record<string, any>
+  params: Record<string, string | number | boolean>
 ) => {
   try {
     const response = await axios.get(endpoint, { params });

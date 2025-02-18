@@ -11,7 +11,13 @@ export async function getTrailerLink(movieId: number): Promise<string | null> {
     });
 
     const videos = response.data.results;
-    const trailer = videos.find((video: any) => video.type === 'Trailer' && video.site === 'YouTube');
+    interface Video {
+  type: string;
+  site: string;
+  key: string;
+}
+
+const trailer = videos.find((video: Video) => video.type === 'Trailer' && video.site === 'YouTube');
 
     return trailer ? `https://www.youtube.com/watch?v=${trailer.key}` : null;
   } catch (error) {

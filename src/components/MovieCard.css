@@ -17,7 +17,6 @@
 
 .movieCard__image {
   width: 100%;
-  /* min-height: 500px; */
   object-fit: contain;
   display: block;
   opacity: 1;
@@ -70,7 +69,7 @@
   margin: 12px 0;
   padding: 0 8px;
   line-height: 1.3;
-  height: 80px;
+  height: auto;
   overflow: scroll;
   -webkit-box-orient: vertical;
 }
@@ -87,21 +86,21 @@
   display: block;
   font-weight: 700;
   height: 40px;
-  align-self: center; 
+  align-self: center;
 }
 
 .movieCard__button:hover {
   background-color: #4a30b3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .movieCard {
     width: 100%;
     margin: 4px;
   }
 
   .movieCard__image {
-    height: 200px;
+    height: auto;
   }
 
   .movieCard__title {

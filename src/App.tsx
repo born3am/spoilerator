@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('now');
   const [trailerLink, setTrailerLink] = useState<string | null>(null);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
   const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
 
   useEffect(() => {

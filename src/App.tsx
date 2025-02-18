@@ -8,14 +8,14 @@ import Navbar from './components/Navbar';
 import About from './pages/About';
 import TrailerModal from './components/TrailerModal';
 import './App.css';
-import { fetchMovies } from './utils/fetchMovies';
-import { searchMovies } from './utils/searchMovies';
+import { fetchMovies } from './services/tmdb/fetchMovies';
+import { searchMovies } from './services/tmdb/searchMovies';
 import {
   API_TMDB_NOW_ENDPOINT,
   API_TMDB_UPCOMING_ENDPOINT,
   API_TMDB_TOP_ENDPOINT,
   API_TMDB_PARAMS
-} from './constants/apiTmdb';
+} from './services/tmdb/constants';
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);

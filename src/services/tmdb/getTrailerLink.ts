@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BASE_URL, API_TMDB_PARAMS } from '../constants/apiTmdb';
+import { BASE_URL, API_TMDB_PARAMS } from './constants';
 
 export async function getTrailerLink(movieId: number): Promise<string | null> {
   try {

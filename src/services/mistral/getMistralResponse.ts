@@ -2,9 +2,6 @@ import { Mistral } from '@mistralai/mistralai';
 import { CUSTOM_PROMPT } from '../../config/promptConfig';
 
 interface MistralResponse {
-  title: string;
-  releaseDate: string;
-  prompt: string;
   response: string;
 }
 
@@ -26,14 +23,11 @@ export const getMistralResponse = async (
       model,
       messages: [
         { role: 'system', content: 'You are a helpful assistant.' },
-        { role: 'user', content: `Title: ${title}, Release Date: ${releaseDate}, Prompt: ${CUSTOM_PROMPT}` }
+        { role: 'user', content: `${CUSTOM_PROMPT} ${title}, released on ${releaseDate} ` }
       ]
     });
 
     return {
-      title,
-      releaseDate,
-      prompt: CUSTOM_PROMPT,
       response: response.choices[0].message.content,
     };
   } catch (error) {

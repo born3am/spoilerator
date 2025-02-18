@@ -18,7 +18,7 @@ const TrailerModal: React.FC<TrailerModalProps> = ({ trailerLink, onClose }) => 
           height="315"
           src={trailerLink.replace('watch?v=', 'embed/')}
           title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
       </div>

@@ -2,6 +2,7 @@ import { Movie } from '../types/movie';
 import './MovieCard.css';
 import { truncateText } from '../utils/truncateText';
 import { getTrailerLink } from '../utils/getTrailerLink';
+import { extractYearFromReleaseDate } from '../utils/extractYearFromReleaseDate';
 
 interface MovieCardProps {
   movie: Movie;
@@ -29,8 +30,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
       />
       <div className="play-icon" onClick={handlePlayClick}>▶</div>
       <h2>{truncateText(movie.title, 18)}</h2>
-      <p>Release Date: {movie.release_date}</p>
-      <p>{truncateText(movie.overview)}</p>
+      <p className="movie-card__year" >({extractYearFromReleaseDate(movie.release_date)})</p>
+      <p className="movie-card__text">{truncateText(movie.overview)}</p>
       <button onClick={handleSpoilerClick}>Spoiler</button>
     </div>
   );

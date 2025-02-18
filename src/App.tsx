@@ -9,6 +9,7 @@ import About from './pages/About';
 import TrailerModal from './components/TrailerModal';
 import './App.css';
 import { fetchMovies } from './utils/fetchMovies';
+import { searchMovies } from './utils/searchMovies';
 import {
   API_TMDB_NOW_ENDPOINT,
   API_TMDB_UPCOMING_ENDPOINT,
@@ -22,6 +23,23 @@ const App: React.FC = () => {
   const [trailerLink, setTrailerLink] = useState<string | null>(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
   const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
+
+  const handleSearch = async (query: string) => {
+    if (query) {
+      const results = await searchMovies(query);
+      setMovies(results);
+    } else {
+      let endpoint = API_TMDB_NOW_ENDPOINT;
+      if (selectedCategory === 'now') {
+        endpoint = API_TMDB_NOW_ENDPOINT;
+      } else if (selectedCategory === 'upcoming') {
+        endpoint = API_TMDB_UPCOMING_ENDPOINT;
+      } else if (selectedCategory === 'top') {
+        endpoint = API_TMDB_TOP_ENDPOINT;
+      }
+      fetchMovies(setMovies, endpoint, API_TMDB_PARAMS);
+    }
+  };
 
   useEffect(() => {
     let endpoint = API_TMDB_NOW_ENDPOINT;
@@ -77,7 +95,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} />
+      <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} onSearch={handleSearch} />
       <div>
         {selectedCategory !== 'about' ? (
           isDesktop ? (

@@ -1,10 +1,10 @@
-.search-input-container {
+.searchInput {
   display: flex;
   justify-content: center;
   margin: 10px 0;
 }
 
-.search-input-container input {
+.searchInput__input {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;

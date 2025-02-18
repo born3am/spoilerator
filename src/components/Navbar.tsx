@@ -6,9 +6,10 @@ import SearchInput from './SearchInput';
 interface NavbarProps {
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
   activeCategory: string;
+  onSearch: (query: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory }) => {
+const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory, onSearch }) => {
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
   };
@@ -19,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory }) 
     <Logo />
     <h1 className="navbar__title">The Spoilerator</h1>
   </div>
-  <SearchInput />
+  <SearchInput onSearch={onSearch} />
   <div className="navbar__menu">
     <ul className="navbar__menu-list">
       <li className="navbar__menu-item"><a href="#now" onClick={() => handleCategoryClick('now')} className={activeCategory === 'now' ? 'navbar__menu-link--active' : 'navbar__menu-link'}>Now Playing</a></li>

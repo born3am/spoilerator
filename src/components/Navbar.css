@@ -27,15 +27,6 @@
   margin-right: 10px;
 }
 
-/* Navbar Title */
-.navbar__title {
-  font-size: 2em;
-  margin: 0;
-  color: var(--primary-color);
-  text-shadow: 2px 2px 4px var(--shadow-black);
-  text-align: center;
-}
-
 /* Navbar Menu */
 .navbar__menu {
   display: flex;
@@ -50,7 +41,7 @@
 }
 
 .navbar__menu-item {
-  margin: 10px 0;
+  margin: 10px 4px;
   text-align: center;
 }
 

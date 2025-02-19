@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
+import LogoTitle from './LogoTitle';
 import Logo from './Logo';
 import SearchInput from './SearchInput';
 
@@ -19,7 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory, on
     <nav className="navbar">
       <div className="navbar__header">
         <Logo />
-        <h1 className="navbar__title">The Spoilerator</h1>
+        <LogoTitle />
       </div>
       <SearchInput onSearch={onSearch} />
       <div className="navbar__menu">

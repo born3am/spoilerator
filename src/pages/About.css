@@ -1,21 +1,50 @@
+@import '../styles/variables.css';
+
 .about-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  padding: 20px;
+  background-color: var(--background-color-white);
+  padding: 40px 20px;
   box-sizing: border-box;
-  margin-top: 60px; /* Adjust this value based on the height of your navbar */
+  margin-top: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-black);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-content h2 {
   font-size: 2em;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.about-content__stack {
+  padding-bottom: 80px;
 }
 
 .about-content p {
   font-size: 1.2em;
-  color: #333;
+  color: var(--text-color-black);
   line-height: 1.6;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.about-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.about-content a:hover {
+  color: var(--secondary-color);
+}
+
+.about-content strong {
+  color: var(--primary-color);
 }

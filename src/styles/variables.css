@@ -1,7 +1,13 @@
-/* CSS Variables for Colors */
 :root {
-  --primary-color: #5a40df;
-  --secondary-color: #DDE0CD;
-  --black-color: #333;
-  --white-color: #ffffff;
+  --primary-color: #DDE0CD;
+  --secondary-color: #5B43D3;
+  --secondary-color-hover: #4a30b3;;
+  --active-color: #5B43D3;
+  --text-color-black: #333;
+  --text-color-grey: #a4a1a1;
+  --text-color-white: #ffffff;
+  --hover-text-color: #ffffff;
+  --background-color-white: #ffffff;
+  --modal-black-opaque: rgba(0, 0, 0, 0.8);
+  --shadow-black: rgba(0, 0, 0, 0.5);
 }

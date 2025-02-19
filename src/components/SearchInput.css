@@ -1,3 +1,5 @@
+@import '../styles/variables.css';
+
 .searchInput {
   display: flex;
   flex-direction: column;
@@ -8,7 +10,7 @@
   margin-bottom: 8px;
   font-weight: bold;
   font-size: 14px;
-  color: #333;
+  color: var(--text-color-black);
 }
 
 .searchInput__input {
@@ -16,7 +18,7 @@
   max-width: 300px;
   padding: 8px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primary-color);
   border-radius: 4px;
   box-sizing: border-box;
   outline: none;
@@ -24,6 +26,6 @@
 }
 
 .searchInput__input:focus {
-  border-color: #5a40df;
-  box-shadow: 0 0 5px rgba(90, 64, 223, 0.5);
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 5px var(--shadow-black);
 }

@@ -1,4 +1,5 @@
-@import './common.css';
+@import '../styles/common.css';
+@import '../styles/variables.css';
 
 /* Modal Container */
 .spoilerModal {
@@ -7,7 +8,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--modal-black-opaque);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,27 +17,10 @@
 
 /* Modal Content Box */
 .spoilerModal__content {
-  background: white;
+  background: var(--background-color-white);
   padding: 20px;
   border-radius: 8px;
   position: relative;
   max-width: 90%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Close Button */
-.spoilerModal__closeButton {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  font-size: 24px;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-.spoilerModal__closeButton:hover {
-  color: #a4a1a1;
+  box-shadow: 0 4px 12px var(--modal-black-opaque);
 }

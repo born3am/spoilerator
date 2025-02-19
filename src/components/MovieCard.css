@@ -1,11 +1,14 @@
+@import '../styles/variables.css';
+
+/* Movie Card Container */
 .movieCard {
-  border: 1px solid #ddd;
+  border: 1px solid var(--primary-color);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-black);
   transition: transform 0.3s;
   margin: 8px;
-  background-color: #fff;
+  background-color: var(--background-color-white);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,6 +18,7 @@
   transform: scale(1.05);
 }
 
+/* Movie Card Image */
 .movieCard__image {
   width: 100%;
   object-fit: contain;
@@ -27,16 +31,17 @@
   opacity: 0.7;
 }
 
+/* Play Icon */
 .movieCard__playIcon {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3em;
-  color: #fff;
+  color: var(--text-color-white);
   opacity: 0;
   transition: opacity 0.3s;
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--modal-black-opaque);
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -51,9 +56,10 @@
 }
 
 .movieCard__playIcon:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--shadow-black);
 }
 
+/* Movie Card Title */
 .movieCard__title {
   font-size: 1.3em;
   margin: 16px 0 4px;
@@ -64,6 +70,7 @@
   white-space: nowrap;
 }
 
+/* Movie Card Overview */
 .movieCard__overview {
   font-size: 1em;
   margin: 12px 0;
@@ -74,9 +81,10 @@
   -webkit-box-orient: vertical;
 }
 
+/* Movie Card Button */
 .movieCard__button {
-  background-color: #5a40df;
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--text-color-white);
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
@@ -90,9 +98,10 @@
 }
 
 .movieCard__button:hover {
-  background-color: #4a30b3;
+  background-color: var(--secondary-color-hover);
 }
 
+/* Responsive Design */
 @media (max-width: 480px) {
   .movieCard {
     width: 100%;

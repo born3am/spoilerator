@@ -1,8 +1,12 @@
-import React from 'react';
+import { useState } from 'react';
 import './SearchInput.css';
 
-const SearchInput: React.FC<{ onSearch: (query: string) => void }> = ({ onSearch }) => {
-const [query, setQuery] = React.useState('');
+interface SearchInputProps {
+  onSearch: (query: string) => void;
+}
+
+const SearchInput: React.FC<SearchInputProps> = ({ onSearch }) => {
+const [query, setQuery] = useState('');
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const newQuery = e.target.value;
@@ -12,9 +16,10 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 return (
   <div className="searchInput">
+    <label htmlFor="searchInput" className="searchInput__label">Search Movies:</label>
     <input
+      id="searchInput"
       type="text"
-      placeholder="Search movies..."
       className="searchInput__input"
       value={query}
       onChange={handleChange}

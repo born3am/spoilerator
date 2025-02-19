@@ -15,21 +15,57 @@ const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory, on
   };
 
   return (
-<nav className="navbar">
-  <div className="navbar__header">
-    <Logo />
-    <h1 className="navbar__title">The Spoilerator</h1>
-  </div>
-  <SearchInput onSearch={onSearch} />
-  <div className="navbar__menu">
-    <ul className="navbar__menu-list">
-      <li className="navbar__menu-item"><a href="#now" onClick={() => handleCategoryClick('now')} className={activeCategory === 'now' ? 'navbar__menu-link--active' : 'navbar__menu-link'}>Now Playing</a></li>
-      <li className="navbar__menu-item"><a href="#upcoming" onClick={() => handleCategoryClick('upcoming')} className={activeCategory === 'upcoming' ? 'navbar__menu-link--active' : 'navbar__menu-link'}>Upcoming</a></li>
-      <li className="navbar__menu-item"><a href="#top" onClick={() => handleCategoryClick('top')} className={activeCategory === 'top' ? 'navbar__menu-link--active' : 'navbar__menu-link'}>Top Rated</a></li>
-      <li className="navbar__menu-item"><a href="#about" onClick={() => handleCategoryClick('about')} className={activeCategory === 'about' ? 'navbar__menu-link--active' : 'navbar__menu-link'}>About</a></li>
-    </ul>
-  </div>
-</nav>
+    <nav className="navbar">
+      <div className="navbar__header">
+        <Logo />
+        <h1 className="navbar__title">The Spoilerator</h1>
+      </div>
+      <SearchInput onSearch={onSearch} />
+      <div className="navbar__menu">
+        <ul className="navbar__menu-list">
+          <li className="navbar__menu-item">
+            <a
+              href="#now"
+              onClick={() => handleCategoryClick('now')}
+              className={activeCategory === 'now' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              aria-current={activeCategory === 'now' ? 'page' : undefined}
+            >
+              Now Playing
+            </a>
+          </li>
+          <li className="navbar__menu-item">
+            <a
+              href="#upcoming"
+              onClick={() => handleCategoryClick('upcoming')}
+              className={activeCategory === 'upcoming' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              aria-current={activeCategory === 'upcoming' ? 'page' : undefined}
+            >
+              Upcoming
+            </a>
+          </li>
+          <li className="navbar__menu-item">
+            <a
+              href="#top"
+              onClick={() => handleCategoryClick('top')}
+              className={activeCategory === 'top' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              aria-current={activeCategory === 'top' ? 'page' : undefined}
+            >
+              Top Rated
+            </a>
+          </li>
+          <li className="navbar__menu-item">
+            <a
+              href="#about"
+              onClick={() => handleCategoryClick('about')}
+              className={activeCategory === 'about' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              aria-current={activeCategory === 'about' ? 'page' : undefined}
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

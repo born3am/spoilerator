@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -94,31 +95,33 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} onSearch={handleSearch} />
-      <div>
-        {selectedCategory !== 'about' ? (
-          isDesktop ? (
-            <Slider className="App__carousel" key={isTrailerModalOpen ? 'modal-open' : 'modal-closed'} {...settings}>
-              {movies.map(movie => (
-                <div key={movie.id}>
-                  <MovieCard movie={movie} onPlayClick={handlePlayClick} />
-                </div>
-              ))}
-            </Slider>
+    <Router>
+      <div className="App">
+        <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} onSearch={handleSearch} />
+        <div>
+          {selectedCategory !== 'about' ? (
+            isDesktop ? (
+              <Slider className="App__carousel" key={isTrailerModalOpen ? 'modal-open' : 'modal-closed'} {...settings}>
+                {movies.map(movie => (
+                  <div key={movie.id}>
+                    <MovieCard movie={movie} onPlayClick={handlePlayClick} />
+                  </div>
+                ))}
+              </Slider>
+            ) : (
+              <div className="App__movie-grid">
+                {movies.map(movie => (
+                  <MovieCard key={movie.id} movie={movie} onPlayClick={handlePlayClick} />
+                ))}
+              </div>
+            )
           ) : (
-            <div className="App__movie-grid">
-              {movies.map(movie => (
-                <MovieCard key={movie.id} movie={movie} onPlayClick={handlePlayClick} />
-              ))}
-            </div>
-          )
-        ) : (
-          <About />
-        )}
+            <About />
+          )}
+        </div>
+        {trailerLink && <TrailerModal trailerLink={trailerLink} onClose={handleCloseModal} />}
       </div>
-      {trailerLink && <TrailerModal trailerLink={trailerLink} onClose={handleCloseModal} />}
-    </div>
+    </Router>
   );
 };
 

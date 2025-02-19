@@ -1,0 +1,7 @@
+/* CSS Variables for Colors */
+:root {
+  --primary-color: #5a40df;
+  --secondary-color: #DDE0CD;
+  --black-color: #333;
+  --white-color: #ffffff;
+}

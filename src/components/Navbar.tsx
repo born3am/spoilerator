@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import Logo from './Logo';
 import SearchInput from './SearchInput';
@@ -24,44 +25,44 @@ const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory, on
       <div className="navbar__menu">
         <ul className="navbar__menu-list">
           <li className="navbar__menu-item">
-            <a
-              href="#now"
+            <NavLink
+              to="/now"
               onClick={() => handleCategoryClick('now')}
-              className={activeCategory === 'now' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              className={({ isActive }) => isActive ? 'navbar__menu-link--active' : 'navbar__menu-link'}
               aria-current={activeCategory === 'now' ? 'page' : undefined}
             >
               Now Playing
-            </a>
+            </NavLink>
           </li>
           <li className="navbar__menu-item">
-            <a
-              href="#upcoming"
+            <NavLink
+              to="/upcoming"
               onClick={() => handleCategoryClick('upcoming')}
-              className={activeCategory === 'upcoming' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              className={({ isActive }) => isActive ? 'navbar__menu-link--active' : 'navbar__menu-link'}
               aria-current={activeCategory === 'upcoming' ? 'page' : undefined}
             >
               Upcoming
-            </a>
+            </NavLink>
           </li>
           <li className="navbar__menu-item">
-            <a
-              href="#top"
+            <NavLink
+              to="/top"
               onClick={() => handleCategoryClick('top')}
-              className={activeCategory === 'top' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              className={({ isActive }) => isActive ? 'navbar__menu-link--active' : 'navbar__menu-link'}
               aria-current={activeCategory === 'top' ? 'page' : undefined}
             >
               Top Rated
-            </a>
+            </NavLink>
           </li>
           <li className="navbar__menu-item">
-            <a
-              href="#about"
+            <NavLink
+              to="/about"
               onClick={() => handleCategoryClick('about')}
-              className={activeCategory === 'about' ? 'navbar__menu-link--active' : 'navbar__menu-link'}
+              className={({ isActive }) => isActive ? 'navbar__menu-link--active' : 'navbar__menu-link'}
               aria-current={activeCategory === 'about' ? 'page' : undefined}
             >
               About
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

@@ -2,7 +2,7 @@
 
 /* Navbar Container */
 .navbar {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   padding: 15px 20px;
   display: flex;
   justify-content: space-between;
@@ -31,7 +31,7 @@
 .navbar__title {
   font-size: 2em;
   margin: 0;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   text-shadow: 2px 2px 4px var(--shadow-black);
   text-align: center;
 }

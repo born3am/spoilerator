@@ -18,7 +18,7 @@
   max-width: 300px;
   padding: 8px;
   font-size: 16px;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-color);
   border-radius: 4px;
   box-sizing: border-box;
   outline: none;
@@ -26,6 +26,6 @@
 }
 
 .searchInput__input:focus {
-  border-color: var(--secondary-color);
+  border-color: var(--primary-color);
   box-shadow: 0 0 5px var(--shadow-black);
 }

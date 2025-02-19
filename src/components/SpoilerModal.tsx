@@ -12,7 +12,13 @@ const SpoilerModal: React.FC<SpoilerModalProps> = ({ message, onClose }) => {
   return (
     <div className="spoilerModal" onClick={onClose}>
       <div className="spoilerModal__content" onClick={(e) => e.stopPropagation()}>
-        <span className="spoilerModal__closeButton" onClick={onClose}>&times;</span>
+        <button
+          className="modal__closeButton"
+          onClick={onClose}
+          aria-label="Close spoiler modal"
+        >
+          &times;
+        </button>
         <p>{message}</p>
       </div>
     </div>

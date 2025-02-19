@@ -1,4 +1,3 @@
-import React from 'react';
 import './TrailerModal.css';
 
 interface TrailerModalProps {
@@ -9,20 +8,30 @@ interface TrailerModalProps {
 const TrailerModal: React.FC<TrailerModalProps> = ({ trailerLink, onClose }) => {
   if (!trailerLink) return null;
 
+  let embedLink = trailerLink.includes('watch?v=') 
+    ? trailerLink.replace('watch?v=', 'embed/')
+    : trailerLink;
+
   return (
-<div className="trailerModal" onClick={onClose}>
-  <div className="trailerModal__content" onClick={(e) => e.stopPropagation()}>
-    <span className="trailerModal__closeButton" onClick={onClose}>&times;</span>
-    <iframe
-      width="560"
-      height="315"
-      src={trailerLink.replace('watch?v=', 'embed/')}
-      title="YouTube video player"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-</div>
+    <div className="trailerModal" onClick={onClose}>
+      <div className="trailerModal__content" onClick={(e) => e.stopPropagation()}>
+        <button
+          className="modal__closeButton"
+          onClick={onClose}
+          aria-label="Close trailer modal"
+        >
+          &times;
+        </button>
+          <iframe
+            width={560}
+            height={315}
+            src={embedLink}
+            title="YouTube video player"
+            allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+      </div>
+    </div>
   );
 };
 

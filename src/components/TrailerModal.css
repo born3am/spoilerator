@@ -1,3 +1,6 @@
+@import './common.css';
+
+/* Modal Container */
 .trailerModal {
   position: fixed;
   top: 0;
@@ -11,17 +14,13 @@
   z-index: 1000;
 }
 
+/* Modal Content Box */
 .trailerModal__content {
   background: white;
-  padding: 20px;
+  padding: 24px;
   border-radius: 8px;
   position: relative;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.trailerModal__closeButton {
-  position: absolute;
-  top: 0px;
-  right: 4px;
-  font-size: 24px;
-  cursor: pointer;
-}

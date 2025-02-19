@@ -1,0 +1,16 @@
+/* Close Button */
+.modal__closeButton {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.modal__closeButton:hover {
+  color: #a4a1a1;
+}

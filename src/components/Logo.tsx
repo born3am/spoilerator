@@ -3,7 +3,7 @@ import './Logo.css';
 const Logo: React.FC = () => {
   return (
     <div className="logo">
-      <img src="/src/assets/logo-spoilerator.png" alt="Spoilerator Logo" />
+      <img src="/src/assets/logo-spoilerator.webp" alt="Spoilerator Logo" />
     </div>
   );
 };

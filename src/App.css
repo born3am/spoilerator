@@ -1,5 +1,6 @@
+@import './styles/variables.css';
 body {
-  background-color: #DDE0CD;
+  background-color: var(--secondary-color);
   margin: 0;
   font-family: 'Arial', sans-serif;
 }

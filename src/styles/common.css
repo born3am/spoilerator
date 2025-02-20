@@ -1,4 +1,5 @@
 @import './variables.css';
+
 /* Close Button */
 .modal__closeButton {
   position: absolute;
@@ -14,4 +15,11 @@
 
 .modal__closeButton:hover {
   color: var(--text-color-grey);
+}
+
+/* Custom styles for react-slick arrows */
+.slick-prev,
+.slick-next {
+  z-index: 1;
+  margin: 0 40px;
 }

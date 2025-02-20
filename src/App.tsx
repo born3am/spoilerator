@@ -10,13 +10,10 @@ import About from './pages/About';
 import TrailerModal from './components/TrailerModal';
 import './App.css';
 import { fetchMovies } from './services/tmdb/fetchMovies';
-import { searchMovies } from './services/tmdb/searchMovies';
-import {
-  API_TMDB_NOW_ENDPOINT,
-  API_TMDB_UPCOMING_ENDPOINT,
-  API_TMDB_TOP_ENDPOINT,
-  API_TMDB_PARAMS
-} from './services/tmdb/endpoints';
+import { handleSearch } from './utils/searchUtils';
+import { getCategoryEndpoint } from './utils/categoryUtils';
+import { setupResizeListener } from './utils/resizeUtils';
+import { API_TMDB_PARAMS } from './services/tmdb/endpoints';
 
 const App: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -24,46 +21,6 @@ const App: React.FC = () => {
   const [trailerLink, setTrailerLink] = useState<string | null>(null);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
   const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
-
-  const handleSearch = async (query: string) => {
-    if (query) {
-      const results = await searchMovies(query);
-      setMovies(results);
-    } else {
-      let endpoint = API_TMDB_NOW_ENDPOINT;
-      if (selectedCategory === 'now') {
-        endpoint = API_TMDB_NOW_ENDPOINT;
-      } else if (selectedCategory === 'upcoming') {
-        endpoint = API_TMDB_UPCOMING_ENDPOINT;
-      } else if (selectedCategory === 'top') {
-        endpoint = API_TMDB_TOP_ENDPOINT;
-      }
-      fetchMovies(setMovies, endpoint, API_TMDB_PARAMS);
-    }
-  };
-
-  useEffect(() => {
-    let endpoint = API_TMDB_NOW_ENDPOINT;
-    if (selectedCategory === 'now') {
-      endpoint = API_TMDB_NOW_ENDPOINT;
-    } else if (selectedCategory === 'upcoming') {
-      endpoint = API_TMDB_UPCOMING_ENDPOINT;
-    } else if (selectedCategory === 'top') {
-      endpoint = API_TMDB_TOP_ENDPOINT;
-    }
-    fetchMovies(setMovies, endpoint, API_TMDB_PARAMS);
-  }, [selectedCategory]);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth > 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const handlePlayClick = (link: string) => {
     setTrailerLink(link);
@@ -74,6 +31,15 @@ const App: React.FC = () => {
     setTrailerLink(null);
     setIsTrailerModalOpen(false);
   };
+
+  useEffect(() => {
+    const endpoint = getCategoryEndpoint(selectedCategory);
+    fetchMovies(setMovies, endpoint, API_TMDB_PARAMS);
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    setupResizeListener(setIsDesktop);
+  }, []);
 
   const settings = {
     dots: true,
@@ -97,7 +63,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} onSearch={handleSearch} />
+        <Navbar setSelectedCategory={setSelectedCategory} activeCategory={selectedCategory} onSearch={(query) => handleSearch(query, setMovies, selectedCategory)} />
         <div>
           {selectedCategory !== 'about' ? (
             isDesktop ? (

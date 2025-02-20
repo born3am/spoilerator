@@ -3,7 +3,7 @@ import './MovieCard.css';
 import { truncateText } from '../utils/truncateText';
 import { getTrailerLink } from '../services/tmdb/getTrailerLink.ts';
 import { getMistralResponse } from '../services/mistral/getMistralResponse';
-import { useState} from 'react';
+import { useState } from 'react';
 import SpoilerModal from './SpoilerModal';
 import TrailerModal from './TrailerModal';
 import { extractYearFromDate } from '../utils/extractYearFromDate.ts';
@@ -33,7 +33,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
       const response = await getMistralResponse(movie.title, movie.release_date);
       setSpoilerMessage(response.response);
     } catch (error) {
-      setSpoilerMessage('Failed to fetch spoiler. Please try again later.');
+      if (error instanceof Error) {
+        setSpoilerMessage('Failed to fetch spoiler. Error: ' + error.message || error.toString());
+      } else {
+        setSpoilerMessage('Failed to fetch spoiler. An unknown error occurred.');
+      }
     }
     setIsSpoilerModalVisible(true);
   };

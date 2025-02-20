@@ -8,9 +8,9 @@ interface TrailerModalProps {
 const TrailerModal: React.FC<TrailerModalProps> = ({ trailerLink, onClose }) => {
   if (!trailerLink) return null;
 
-  let embedLink = trailerLink.includes('watch?v=') 
-    ? trailerLink.replace('watch?v=', 'embed/')
-    : trailerLink;
+const embedLink = trailerLink.includes('watch?v=')
+  ? trailerLink.replace('watch?v=', 'embed/')
+  : trailerLink;
 
   return (
     <div className="trailerModal" onClick={onClose}>

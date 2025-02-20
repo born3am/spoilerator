@@ -7,6 +7,7 @@ import { useState } from 'react';
 import SpoilerModal from './SpoilerModal';
 import TrailerModal from './TrailerModal';
 import { extractYearFromDate } from '../utils/extractYearFromDate.ts';
+import { API_TMDB_POSTER_BASE_URL } from '../services/tmdb/endpoints';
 
 interface MovieCardProps {
   movie: Movie;
@@ -52,7 +53,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
   return (
     <div className="movieCard" onMouseLeave={handleMouseLeave}>
       <img
-        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+        src={`${API_TMDB_POSTER_BASE_URL}${movie.poster_path}`}
         alt={movie.title}
         className="movieCard__image"
       />

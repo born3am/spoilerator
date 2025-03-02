@@ -21,6 +21,35 @@
   padding: 20px;
   border-radius: 8px;
   position: relative;
-  max-width: 90%;
+  width: 90%;
   box-shadow: 0 4px 12px var(--modal-black-opaque);
+}
+
+/* Close Button */
+.modal__closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Spinner */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

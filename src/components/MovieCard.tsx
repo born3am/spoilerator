@@ -29,17 +29,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
     }
   };
 
-  const handleSpoilerClick = async () => {
-    try {
-      const response = await getMistralResponse(movie.title, movie.release_date);
-      setSpoilerMessage(response.response);
-    } catch (error) {
-      if (error instanceof Error) {
-        setSpoilerMessage('Failed to fetch spoiler. Error: ' + error.message || error.toString());
-      } else {
-        setSpoilerMessage('Failed to fetch spoiler. An unknown error occurred.');
-      }
-    }
+  const handleSpoilerClick = () => {
     setIsSpoilerModalVisible(true);
   };
 
@@ -48,6 +38,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
       setIsSpoilerModalVisible(false);
       setSpoilerMessage(null);
     }
+  };
+
+  const fetchMessage = async () => {
+    const response = await getMistralResponse(movie.title, movie.release_date);
+    return response.response;
   };
 
   return (
@@ -62,7 +57,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
       <p className="movieCard__overview">{movie.overview}</p>
       <button className="movieCard__button" onClick={handleSpoilerClick}>Spoiler</button>
       {isSpoilerModalVisible && (
-        <SpoilerModal message={spoilerMessage} onClose={() => setIsSpoilerModalVisible(false)} />
+        <SpoilerModal
+          message={spoilerMessage}
+          onClose={() => setIsSpoilerModalVisible(false)}
+          onFetchMessage={fetchMessage}
+        />
       )}
       {isTrailerModalVisible && (
         <TrailerModal trailerLink={trailerLink} onClose={() => setIsTrailerModalVisible(false)} />

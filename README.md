@@ -87,6 +87,45 @@ This will start the development server, and you can access the application at `h
 5. **Verify the Deployment**:
    After the deployment is complete, you can verify it by visiting the provided URL.
 
+### Deploying Serverless Functions on Vercel
+
+1. **Set Up Environment Variables** 
+
+a) **Locally (`.env.local` for Development Only)**  
+Create a `.env.local` file in your project root and add:  
+
+```ini
+MISTRAL_API_KEY=your_mistral_api_key
+TMDB_API_KEY=your_tmdb_api_keyy
+   ```
+
+   b) **On Vercel (For Production & Deployment)**
+
+   Go to Vercel Dashboard → Your Project → Settings → Environment Variables.
+
+   Add the following keys manually:
+   ***MISTRAL_API_KEY*** → your_mistral_api_key
+   ***TMDB_API_KEY*** → your_tmdb_api_key
+   Redeploy the project for changes to take effect.
+
+2. **Create Serverless Functions**:
+   Vercel automatically detects API routes inside the /api/ directory. Your project structure should look like this:
+   /api
+  ├── mistral.js   # Handles requests to the Mistral AI API
+  ├── tmdb.js      # Fetches data from The Movie DB API
+
+  Important: Do not use VITE_* prefixes for backend variables, as they expose them to the frontend.
+
+
+3. **Deploy the Functions**:
+   Run the following command to deploy your serverless functions:
+   ```bash
+   vercel
+   ```
+
+4. **Verify the Deployment**:
+   After the deployment is complete, you can verify it by visiting the provided URL and testing the serverless functions.
+
 ## Contributing
 
 Contributions are welcome! Please follow these steps:

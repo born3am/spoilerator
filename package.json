@@ -12,7 +12,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-dev": "vercel dev",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@ant-design/react-slick": "^1.1.2",

@@ -1,6 +1,9 @@
-# Spoilerator 
+# The Spoilerator 
 
 For the impatient, the curious, and the malicious... get the spoilers before the movie even starts!
+
+<img width="1414" alt="Screenshot 2025-03-04 at 15 10 32" src="https://github.com/user-attachments/assets/026b7a3c-dd10-4ad8-8b4b-0672ff9006e6" />
+
 
 ## Table of Contents
 
@@ -17,12 +20,13 @@ For the impatient, the curious, and the malicious... get the spoilers before the
 
 ## About
 
-Spoilerator is a web application that provides movie spoilers before the movie even starts. It uses TMDB API to fetch movie data and MISTRAL AI API to generate spoilers.
+The Spoilerator is a web application that provides movie spoilers before the movie even starts. It uses TMDB API to fetch movie data and MISTRAL AI API to generate spoilers.
 
 ## Stack
   - React
   - TypeScript
   - Vite
+  - Cline for VS code
   - Mistral AI API
   - TMDB API
 

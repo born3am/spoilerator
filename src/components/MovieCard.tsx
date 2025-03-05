@@ -25,7 +25,11 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlayClick }) => {
     if (link) {
       onPlayClick(link);
       setTrailerLink(link);
-      setIsTrailerModalVisible(true);
+      if (window.innerWidth <= 480) {
+        alert('Rotate your device to watch the trailer.');
+      } else {
+        setIsTrailerModalVisible(true);
+      }
     }
   };
 

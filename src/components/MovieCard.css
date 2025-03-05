@@ -37,14 +37,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3em;
+  font-size: 2em; /* Reduced font size */
   color: var(--text-color-white);
   opacity: 0;
   transition: opacity 0.3s;
   background: var(--modal-black-opaque);
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 80px; /* Reduced button size */
+  height: 80px; /* Reduced button size */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +54,11 @@
 .movieCard:hover .movieCard__playIcon {
   opacity: 1;
 }
+
+.movieCard__playIcon:hover {
+  background: var(--shadow-black);
+}
+
 
 .movieCard__playIcon:hover {
   background: var(--shadow-black);

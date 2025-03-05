@@ -106,10 +106,12 @@
   .movieCard {
     width: 100%;
     margin: 4px;
+    position: relative;
   }
 
   .movieCard__image {
     height: auto;
+    opacity: 0.8;
   }
 
   .movieCard__title {
@@ -123,5 +125,9 @@
 
   .movieCard__button {
     padding: 8px 16px;
+  }
+
+  .movieCard__playIcon {
+    opacity: 1;
   }
 }

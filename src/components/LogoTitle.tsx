@@ -1,9 +1,12 @@
-// filepath: /Users/pedrosilva/repos/Personal/spoilerator/src/components/LogoTitle.tsx
-import { ReactComponent as LogoTitleSVG } from '../assets/logo-title.svg';
+import logoTitle from '../assets/logo-title.svg';
 import './LogoTitle.css';
 
 const LogoTitle: React.FC = () => {
-  return <LogoTitleSVG className="logo-title" />;
+  return (
+    <div className="logo-title">
+      <img src={logoTitle} title='Logo Title' alt="Logo Title" />
+    </div>
+  );
 };
 
 export default LogoTitle;

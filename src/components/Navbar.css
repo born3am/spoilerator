@@ -36,6 +36,10 @@
   display: none; /* Hidden by default on desktop */
 }
 
+.navbar__hamburger:focus {
+  outline: 2px solid var(--active-color);
+}
+
 /* ============================= */
 /* Navbar Menu */
 /* ============================= */
@@ -44,6 +48,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .navbar__menu-list {
@@ -134,21 +139,21 @@
     padding: 0;
     margin: 0;
     justify-content: flex-end;
-    max-height: 500px;
+    max-height: 100vh;
   }
 
   /* Mobile Menu List */
   .navbar__menu-list {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    width: 100%;
     padding: 0;
     margin: 0;
   }
 
   .navbar__menu-item {
-    width: 100%;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 20px;
     border-bottom: 1px solid var(--border-color);
   }
 
@@ -157,6 +162,6 @@
   }
 
   .navbar__menu-link {
-    padding: 10px 0;
+    padding: 10px 20px;
   }
 }

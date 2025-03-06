@@ -4,7 +4,7 @@
   padding: 0 24px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1240px) {
   .logo-title img {
     width: 240px;
     padding: 0 12px;

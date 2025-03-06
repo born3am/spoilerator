@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 import LogoTitle from './LogoTitle';
@@ -11,8 +12,15 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory, onSearch }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -21,8 +29,13 @@ const Navbar: React.FC<NavbarProps> = ({ setSelectedCategory, activeCategory, on
         <Logo />
         <LogoTitle />
       </div>
-      <SearchInput onSearch={onSearch} />
-      <div className="navbar__menu">
+      <div className="navbar__search-hamburger">
+        <SearchInput onSearch={onSearch} />
+        <button className="navbar__hamburger" onClick={toggleMenu}>
+          &#9776; {/* Hamburger icon */}
+        </button>
+      </div>
+      <div className={`navbar__menu ${isMenuOpen ? 'navbar__menu--open' : ''}`}>
         <ul className="navbar__menu-list">
           <li className="navbar__menu-item">
             <NavLink

@@ -1,8 +1,8 @@
 # Spoilerator
 
-![Screenshot](readme-screenshot.png)
+![Screenshot](./src/assets/readme-sceenshot.png)
 
-![Screen Recording](readme-screen-recording.mov)
+![Screen Recording](./src/assets/readme-screen-recording.gif)
 
 For the impatient, the curious, and the malicious... get the spoilers before the movie even starts!
 
